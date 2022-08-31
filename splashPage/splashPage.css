@@ -1,0 +1,15 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+    margin: 0%;
+    color: #fff;
+    background-color: #141414;
+    width: 100%;
+    height: 100%;
+    /* background-image: opacity(50); */
+    background-image: url(images/1page\ 1card.jpeg);
+    
+}
