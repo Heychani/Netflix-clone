@@ -1,9 +1,3 @@
-/* @media only screen and (min-width: 1450px), only screen and (min-width: 550px) and (max-width: 949px), only screen and (min-width: 950px) and (max-width: 1449px) {
-    .our-story-card { 
-        padding: 70px 45px;
-    }
-} */
-
 *{
     box-sizing: border-box;
 }
@@ -45,8 +39,8 @@ body{
     font-weight: 900;
 }
 
-. {
-    background-image: url("/images/1page\ 1card\ 1.png");
+.card-one{
+
 }
 
 .our-story-card{
