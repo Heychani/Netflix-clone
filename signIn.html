@@ -10,37 +10,47 @@
     <link rel="stylesheet" href="css/signIn.css" />
   </head>
   <body>
+    <nav class="navbar">
+        <div class="left">
+            <img src="images/netflix-logo.png" alt="Netflix Logo"/>
+    </div>
+
     <div class="signIn">
       <h1>Sign In</h1>
       <form method="post" class="login" action>
-        <div class="signIn-email">
-          <input
-            type="email"
-            name="signIn-email"
-            placeholder="Email or phone number"
-            required
-          />
+        <div class="signIn-inputs">
+          <div class="signIn-email">
+            <input
+              type="email"
+              name="signIn-email"
+              placeholder="Email or phone number"
+              required
+            />
+          </div>
+          <div class="signIn-password">
+            <input
+              type="password"
+              name="signIn-password"
+              placeholder="Password"
+              required
+            />
+          </div>
         </div>
-        <div class="signIn-password">
-          <input
-            type="password"
-            name="signIn-password"
-            placeholder="Password"
-            required
-          />
+
+        <button class="signIn-btn"><a href="whoIsWatching.html"></a>Sign In </button>
+
+        <input type="checkbox" checked="checked">Remember me</input>
+        
+        <p class="help">Need help?</p>
+
+        <div class="newNetflix">
+          <p>New to Netflix? Sign up now.</p>
+
+          <p class="captcha">
+            This page is protected by Google reCAPTCHA to ensure you're not a bot.
+            <a url="https://policies.google.com/terms">Learn more.</a>
+          </p>
         </div>
-
-        <button class="signIn"><a href="whoIsWatching.html"></a>Sign In</button>
-
-        <button type="radio">Remember me</button>
-        <p>Need help?</p>
-
-        <p>New to Netflix? <link href="create.html" />Sign up now.</p>
-
-        <p>
-          This page is protected by Google reCAPTCHA to ensure you're not a bot.
-          <link url="https://policies.google.com/terms" />Learn more.
-        </p>
       </form>
     </div>
   </body>

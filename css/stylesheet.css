@@ -88,7 +88,6 @@ h4{
     width: 50rem;
     height: 70px;
     font-size: larger;
-
 }
 
 .email-btn{
@@ -107,7 +106,7 @@ h4{
 }
 
 .card-one-image-container{
-    background-image: url("/images/1page\ 1card\ 1.png");
+    background-image: url("/images/background.png");
 }
 
 .our-story-card-one{
