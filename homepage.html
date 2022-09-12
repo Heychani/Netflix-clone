@@ -10,10 +10,56 @@
     <!-- Vue.js tag-->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
-<body>
-    <div id="application">
-        <div id="app_basic" v-bind:title="timestamp" class="experiment-block">{{ message }}</div>
-    </div>
+<body>      
+        <nav id="navbar" class="navbar">
+            <div class="nav-left">
+                <a href="homepage.html">
+                    <img src="images/netflix-logo.png" id="netflixlogo" alt="Netflix Logo"> 
+                </a>
+                <ul class="primary-navigation">
+                    <li class="genres">
+                        <a class="browse active" href="#Home">Home</a>
+                    </li>
+                    <li class="genres">
+                        <a class="browse" href="#TV shows">TV Shows</a>
+                    </li>
+                    <li class="genres">
+                        <a class="browse" href="#Movies">Movies</a>
+                    </li>
+                    <li class="genres">
+                        <a class="browse" href="#New & Popular">New & Popular</a>
+                    </li>
+                    <li class="genres">
+                        <a class="browse" href="#My Watchlist">My Watchlist</a>
+                    </li>
+                    <li class="genres">
+                        <a class="browse" href="#Browse by Languages">Browse by Languages</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <button class="search-btn"><img class="search-image" src="images/search-icon.png" alt="Search button"></button>
+                <ul class="list-nav-right">
+                    <li class="extra">
+                        <a class="browse" href="#Kids">Kids</a>
+                    </li>
+                </ul>
+                <button class="notfications-btn"><img class="notification" src="images/notification-icon.png" alt="Notifications"></button>
+                <button class="my-profile"><img class="my-profile" src="images/profile-1.png" alt="My Profile"></button>
+            </div>
+        </nav>
+            <!-- <video src="video/bullet-trailer-trailer-2_h1080p.mov" controls></video> -->
+
+        <div class="movie-layer">
+            <video src="video/bullet-trailer-trailer-2_h1080p.mov" controls></video>
+        </div>    
+        <div class="movie-information-layer">
+            <h1>Bullet 2</h1>
+                <h2>#2 in Movies Today</h2>
+                    <p>After the death of Charras, Lino and Julia form the new narcotics unit. Determined to find the murderers of his brother and his mentor, Lino continues his hunt and won't let anyone get in his way.</p>
+                        <button class="play">Play</button>
+                            <button class="more-info">More info</button>
+        </div>        
 </body>
     <!-- JavaScript tag-->
     <script src="js/homepage.js" defer></script>

@@ -19,8 +19,156 @@
 body{
     background-color: var(--black);
     font-family: sans-serif;
+    color: var(--white);
 }
 
-#app_basic{
-    color: white;
+nav{
+    /* position: inherit; */
 }
+
+.nav-left{
+    display: flex;
+    float: left;
+}
+
+#netflixlogo{
+    width: 120px;
+    height: 60px;
+    margin-top: 1rem;
+}
+
+.primary-navigation{
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    margin-top: 2.2rem;
+}
+
+.nav-right{
+    float: right;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    margin-right: 2rem;
+}
+
+.search-btn{
+    background-color: var(--black);
+    border: none;
+    width: 24px;
+    height: 24px;
+}
+
+.search-image{
+    width: 32px;
+    height: 32px;
+}
+
+.notification{
+    width: 32px;
+    height: 32px;
+}
+
+.primary-navigation{
+    list-style: none;
+    text-decoration: none;
+    color: var(--white);
+}
+
+.extra{
+    list-style: none;
+}
+
+.browse{
+    color: var(--white);
+    text-decoration: none;
+}
+
+.genres{
+    color: var(--white);
+    text-decoration: none;
+    list-style: none;
+}
+
+.notfications-btn{
+    background-color: var(--black);
+    border: none;
+}
+
+.my-profile{
+    background-color: var(--black);
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 4px;
+}
+
+video{
+    background-position: 50%;
+    background-size: cover;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0.5;
+    transition-duration: 0.4s;
+    transition-timing-function: cubic-bezier(0.655, 0.235, 0.265, 0.8);
+    transition-delay: 0s;
+    width: 100%;
+}
+
+.movie-layer{
+
+}
+
+.movie-information-layer{
+    background-image: linear-gradient(77deg, rgba(0, 0, 0, 0.6), transparent 85%);
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-position-x: initial;
+    background-position-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+    bottom: 0;
+    left: 0;
+    opacity: 2;
+    position: absolute;
+    right: 26.09%;
+    top: 0;
+    transition-property: opacity;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    display: flex;
+    align-items: center;
+}
+
+/* .movie-information-layer{
+    background-image: linear-gradient(77deg, rgba(0, 0, 0, 0.6), transparent 85%);
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-position-x: initial;
+    background-position-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+    bottom: 0;
+    left: 0;
+    opacity: 2;
+    position: absolute;
+    right: 26.09%;
+    top: 0;
+    transition-property: opacity;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    display: flex;
+    align-items: center;
+} */
