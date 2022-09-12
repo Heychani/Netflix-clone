@@ -10,37 +10,42 @@
     <!-- Vue.js tag-->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
-<body>      
+<body> 
+    <!-- ID to use later with Vue and JS which contains all my HTML for the homepage.html file-->
+    <div id="netflixApplication">    
+        <!-- Navigation bar left and right with movie categories, icons and profile-->
         <nav id="navbar" class="navbar">
+            <!-- Navbar left -->
             <div class="nav-left">
                 <a href="homepage.html">
                     <img src="images/netflix-logo.png" id="netflixlogo" alt="Netflix Logo"> 
                 </a>
                 <ul class="primary-navigation">
-                    <li class="genres">
+                    <li class="category">
                         <a class="browse active" href="#Home">Home</a>
                     </li>
-                    <li class="genres">
+                    <li class="category">
                         <a class="browse" href="#TV shows">TV Shows</a>
                     </li>
-                    <li class="genres">
+                    <li class="category">
                         <a class="browse" href="#Movies">Movies</a>
                     </li>
-                    <li class="genres">
+                    <li class="category">
                         <a class="browse" href="#New & Popular">New & Popular</a>
                     </li>
-                    <li class="genres">
-                        <a class="browse" href="#My Watchlist">My Watchlist</a>
+                    <li class="category">
+                        <a class="browse" href="watchlist.html">My Watchlist</a>
                     </li>
-                    <li class="genres">
-                        <a class="browse" href="#Browse by Languages">Browse by Languages</a>
+                    <li class="category">
+                        <a class="browse" href="#Coming Soon">Coming Soon</a>
                     </li>
                 </ul>
             </div>
+            <!-- Navbar right -->
             <div class="nav-right">
                 <button class="search-btn"><img class="search-image" src="images/search-icon.png" alt="Search button"></button>
                 <ul class="list-nav-right">
-                    <li class="extra">
+                    <li class="category">
                         <a class="browse" href="#Kids">Kids</a>
                     </li>
                 </ul>
@@ -48,19 +53,140 @@
                 <button class="my-profile"><img class="my-profile" src="images/profile-1.png" alt="My Profile"></button>
             </div>
         </nav>
-            <!-- <video src="video/bullet-trailer-trailer-2_h1080p.mov" controls></video> -->
 
-        <div class="movie-layer">
-            <video src="video/bullet-2-trailer.mov" controls></video>
+
+        <!-- Movie trailer -->
+        <div class="movie-trailer">
+            <video src="video/bullet-2-trailer.mov" 
+            title="Bullet Train | Brad Pitt, Bad Bunny, Aaron Taylor-Johnson, Sandra Bullock and Joey King | Official Trailer | Netflix"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            id="trailer"></video>
+        </div>  
+        
+        <!-- Category slides -->
+        <div class="row">
+            <h1 class="ComingSoon">Coming Soon</h1>
+            <div class="displayClassMainAxis">
+                <div v-for="(event, index) in moviesComingSoon" class="displayMovie"> <!-- filteredMoviesComingSoon-->
+                    <a class="movie-link">
+                        <div>
+                            <img :src="event.image" alt="Movie Images" class="movieImage">
+                            <div><button class="add-Btn" @click="addWatchList(event)">Add</button></div> <!-- addWatchList = addToWatchList-->
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category 1-->
+        <div class="row">
+            <h1 class="trending-now">Trending Now</h1>
+            <div class="displayClassMainAxis">
+                <div v-for="(event, index) in trendingMovies" class="displayMovie"> 
+                    <a class="movie-link">
+                        <div>
+                            <img :src="event.image" alt="Movie Images" class="movieImage">
+                            <div><button class="add-Btn" @click="addWatchList(event)">Add</button></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category 2 -->
+        <div class="row">
+            <h1 class="documentaries">Documentaries</h1>
+            <div class="displayClassMainAxis">
+                <div v-for="(event, index) in documentaryMovies" class="displayMovie"> 
+                    <a class="movie-link">
+                        <div>
+                            <img :src="event.image" alt="Movie Images" class="movieImage">
+                            <div><button class="add-Btn" @click="addWatchList(event)">Add</button></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category 3 -->
+        <div class="row">
+            <h1 class="comedy">Comedy</h1>
+            <div class="displayClassMainAxis">
+                <div v-for="(event, index) in comedyMovies" class="displayMovie"> 
+                    <a class="movie-link">
+                        <div>
+                            <img :src="event.image" alt="Movie Images" class="movieImage">
+                            <div><button class="add-Btn" @click="addWatchList(event)">Add</button></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>    
-        <div class="movie-information-layer">
-            <h1>Bullet 2</h1>
-                <h2>#2 in Movies Today</h2>
-                    <p>After the death of Charras, Lino and Julia form the new narcotics unit. Determined to find the murderers of his brother and his mentor, Lino continues his hunt and won't let anyone get in his way.</p>
-                        <button class="play">Play</button>
-                            <button class="more-info">More info</button>
-        </div>        
+
+        <!-- Category 4 -->
+        <div class="row">
+            <h1 class="tvShows">TV Shows</h1>
+            <div class="displayClassMainAxis">
+                <div v-for="(event, index) in tvShows" class="displayMovie"> 
+                    <a class="movie-link">
+                        <div>
+                            <img :src="event.image" alt="Movie Images" class="movieImage">
+                            <div><button class="add-Btn" @click="addWatchList(event)">Add</button></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>    
+
+        <!-- Category 5 -->
+        <div class="row">
+            <h1 class="realStories">Real Stories</h1>
+            <div class="displayClassMainAxis">
+                <div v-for="(event, index) in realStories" class="displayMovie"> 
+                    <a class="movie-link">
+                        <div>
+                            <img :src="event.image" alt="Movie Images" class="movieImage">
+                            <div><button class="add-Btn" @click="addWatchList(event)">Add</button></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>   
+        
+        <!-- Category 6-->
+        <div class="row">
+            <h1 class="food">Food</h1>
+            <div class="displayClassMainAxis">
+                <div v-for="(event, index) in foodTvShows" class="displayMovie"> 
+                    <a class="movie-link">
+                        <div>
+                            <img :src="event.image" alt="Movie Images" class="movieImage">
+                            <div><button class="add-Btn" @click="addWatchList(event)">Add</button></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div> 
+
+        <div class="row">
+            <h1 class="kids">Kids</h1>
+            <div class="displayClassMainAxis">
+                <div v-for="(event, index) in kidsMovies" class="displayMovie"> 
+                    <a class="movie-link">
+                        <div>
+                            <img :src="event.image" alt="Movie Images" class="movieImage">
+                            <div><button class="add-Btn" @click="addWatchList(event)">Add</button></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div> 
+    </div>           
 </body>
+<footer>
+
+</footer>
     <!-- JavaScript tag-->
     <script src="js/homepage.js" defer></script>
 </html>
