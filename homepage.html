@@ -34,7 +34,7 @@
                         <a class="browse" href="#New & Popular">New & Popular</a>
                     </li>
                     <li class="category">
-                        <a class="browse" href="watchlist.html">My Watchlist</a>
+                        <button><a class="watchlist" href="watchlist.html">My Watchlist</a></button>
                     </li>
                     <li class="category">
                         <a class="browse" href="#Coming Soon">Coming Soon</a>
@@ -43,7 +43,12 @@
             </div>
             <!-- Navbar right -->
             <div class="nav-right">
-                <button class="search-btn"><img class="search-image" src="images/search-icon.png" alt="Search button"></button>
+                <div class="search">
+                    <form>
+                        <input id="searchBox" v-model="searchInput.searchBox" type="text" placeholder="Titles, people, genres">
+                        <input type="image" value="search" id="search-btn" src="images/search-icon.png" @click="theSearch">
+                    </form>
+                </div>
                 <ul class="list-nav-right">
                     <li class="category">
                         <a class="browse" href="#Kids">Kids</a>
@@ -81,7 +86,7 @@
 
         <!-- Category 1-->
         <div class="row">
-            <h1 class="trending-now">Trending Now</h1>
+            <h1 id="trending-now">Trending Now</h1>
             <div class="displayClassMainAxis">
                 <div v-for="(event, index) in trendingMovies" class="displayMovie"> 
                     <a class="movie-link">
@@ -96,7 +101,7 @@
 
         <!-- Category 2 -->
         <div class="row">
-            <h1 class="documentaries">Documentaries</h1>
+            <h1 id="documentaries">Documentaries</h1>
             <div class="displayClassMainAxis">
                 <div v-for="(event, index) in documentaryMovies" class="displayMovie"> 
                     <a class="movie-link">
@@ -111,7 +116,7 @@
 
         <!-- Category 3 -->
         <div class="row">
-            <h1 class="comedy">Comedy</h1>
+            <h1 id="comedy">Comedy</h1>
             <div class="displayClassMainAxis">
                 <div v-for="(event, index) in comedyMovies" class="displayMovie"> 
                     <a class="movie-link">
@@ -126,7 +131,7 @@
 
         <!-- Category 4 -->
         <div class="row">
-            <h1 class="tvShows">TV Shows</h1>
+            <h1 id="tvShows">TV Shows</h1>
             <div class="displayClassMainAxis">
                 <div v-for="(event, index) in tvShows" class="displayMovie"> 
                     <a class="movie-link">
@@ -141,7 +146,7 @@
 
         <!-- Category 5 -->
         <div class="row">
-            <h1 class="realStories">Real Stories</h1>
+            <h1 id="realStories">Real Stories</h1>
             <div class="displayClassMainAxis">
                 <div v-for="(event, index) in realStories" class="displayMovie"> 
                     <a class="movie-link">
@@ -156,7 +161,7 @@
         
         <!-- Category 6-->
         <div class="row">
-            <h1 class="food">Food</h1>
+            <h1 id="food">Food</h1>
             <div class="displayClassMainAxis">
                 <div v-for="(event, index) in foodTvShows" class="displayMovie"> 
                     <a class="movie-link">
@@ -170,7 +175,7 @@
         </div> 
 
         <div class="row">
-            <h1 class="kids">Kids</h1>
+            <h1 id="kids">Kids</h1>
             <div class="displayClassMainAxis">
                 <div v-for="(event, index) in kidsMovies" class="displayMovie"> 
                     <a class="movie-link">
