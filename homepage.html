@@ -7,6 +7,8 @@
     <title>Homepage</title>
     <!-- CSS link-->
     <link rel="stylesheet" href="css/homepage.css">
+    <!-- JavaScript tag-->
+    <script src="js/homepage.js" defer></script>
     <!-- Vue.js tag-->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
@@ -71,7 +73,7 @@
         
         <!-- Category slides -->
         <div class="row">
-            <h1 class="ComingSoon">Coming Soon</h1>
+            <h1 id="comingSoon">Coming Soon</h1>
             <div class="displayClassMainAxis">
                 <div v-for="(event, index) in moviesComingSoon" class="displayMovie"> <!-- filteredMoviesComingSoon-->
                     <a class="movie-link">
@@ -116,7 +118,7 @@
 
         <!-- Category 3 -->
         <div class="row">
-            <h1 id="comedy">Comedy</h1>
+            <h1 id="comedies">Comedies</h1>
             <div class="displayClassMainAxis">
                 <div v-for="(event, index) in comedyMovies" class="displayMovie"> 
                     <a class="movie-link">
@@ -131,21 +133,6 @@
 
         <!-- Category 4 -->
         <div class="row">
-            <h1 id="tvShows">TV Shows</h1>
-            <div class="displayClassMainAxis">
-                <div v-for="(event, index) in tvShows" class="displayMovie"> 
-                    <a class="movie-link">
-                        <div>
-                            <img :src="event.image" alt="Movie Images" class="movieImage">
-                            <div><button class="add-Btn" @click="addWatchList(event)">Add</button></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>    
-
-        <!-- Category 5 -->
-        <div class="row">
             <h1 id="realStories">Real Stories</h1>
             <div class="displayClassMainAxis">
                 <div v-for="(event, index) in realStories" class="displayMovie"> 
@@ -158,26 +145,11 @@
                 </div>
             </div>
         </div>   
-        
-        <!-- Category 6-->
-        <div class="row">
-            <h1 id="food">Food</h1>
-            <div class="displayClassMainAxis">
-                <div v-for="(event, index) in foodTvShows" class="displayMovie"> 
-                    <a class="movie-link">
-                        <div>
-                            <img :src="event.image" alt="Movie Images" class="movieImage">
-                            <div><button class="add-Btn" @click="addWatchList(event)">Add</button></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div> 
 
         <div class="row">
-            <h1 id="kids">Kids</h1>
+            <h1 id="foodWine">Food & Wine</h1>
             <div class="displayClassMainAxis">
-                <div v-for="(event, index) in kidsMovies" class="displayMovie"> 
+                <div v-for="(event, index) in foodWineMovies" class="displayMovie"> 
                     <a class="movie-link">
                         <div>
                             <img :src="event.image" alt="Movie Images" class="movieImage">
@@ -192,6 +164,4 @@
 <footer>
 
 </footer>
-    <!-- JavaScript tag-->
-    <script src="js/homepage.js" defer></script>
 </html>
