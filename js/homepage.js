@@ -15,7 +15,7 @@ let myVue = new Vue({
                 comingSoon: false,
                 availDate: 2022,
                 description: "Dig into the best Pizzas from around the world, prepared by renowned chefs who bake passion, creativity and hard work into every slice",
-                image: "",
+                image: "https://occ-0-4305-34.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABQJWZeUipOPfMjKHJpsoQ2EglYXiH9YFAbhZwXUNvTEZ6R0TdYWEIdXQv_lqweQxBKMROZrOaPN42T1VGYIBwrtXU38HKgtc_AoEF9lk1GIr48B3wljzefliL5D6L20sr9Rv.jpg?r=2b0",
                 preview: "https://youtu.be/wyXnoeJoKLw", 
             },
     
@@ -37,7 +37,7 @@ let myVue = new Vue({
                 comingSoon: false,
                 availDate: 2022,
                 description: "In this fast-paced reality series, homeowners negotiate with real estate investors in hopes of selling their houses on the spot",
-                image: "",
+                image: "https://occ-0-4305-34.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABTlF4L-Q35BVOx1DLxstW2eYPywQK8CgXPFrVoYsOBA-KZ1W8H5E2Scz923aH3eNdZFlmRDXQ-c8tX76ubSnBK_2m1lCtu7yeKaGU7EnRhmJ-oRrt_TLYNrWX6pRoCRvheqo.jpg?r=ceb",
                 preview: "https://youtu.be/5hm0-1UZBXA",
             },
     
@@ -341,61 +341,52 @@ let myVue = new Vue({
     },
 
         computed: {
-            moviesFilter() {
-                let noviesFilter = this.movies.filter((movie) => {
-                    return movie.Title.toLowerCase().includes(
-                        this.searchInput.searchBox.toLowerCase()
-                    );
-                });
-                return moviesFilter();
-            },
-
             moviesComingSoonFilter() {
                 let moviesComingSoonFilter = this.movies.filter((movie) => {
-                return movie.genre.toLowerCase().includes("comingSoon".toLowerCase());
+                    return movie.id.toLowerCase().includes("comingSoon".toLowerCase());
             });
-            return moviesComingSoonFilter();
+            return moviesComingSoonFilter;
             },
 
             trendingNowFilter() {
                 let trendingNowFilter = this.movies.filter((movie) => {
-                    return movie.genre.toLowerCase().includes("trendingNow".toLowerCase());
+                    return movie.id.toLowerCase().includes("trendingNow".toLowerCase());
                 });
-                return trendingNowFilter();
+                return trendingNowFilter;
             },
 
             documentariesFilter() {
                 let documentariesFilter = this.movies.filter((movie) => {
-                    return movie.genre.toLowerCase().includes("documentaries".toLowerCase());
+                    return movie.id.toLowerCase().includes("documentaries".toLowerCase());
                 });
-                return documentariesFilter();
+                return documentariesFilter;
             },
 
             comedyMoviesFilter() {
                 let comedyMoviesFilter = this.movies.filter((movie) => {
-                    return movie.genre.toLowerCase().includes("comedies".toLowerCase());
+                    return movie.id.toLowerCase().includes("comedies".toLowerCase());
                 });
-                return comedyMoviesFilter();
+                return comedyMoviesFilter;
             },
 
             realStoriesFilter() {
                 let realStoriesFilter = this.movies.filter((movie) => {
-                    return movie.genre.toLowerCase().includes("realStories".toLowerCase());
+                    return movie.id.toLowerCase().includes("realStories".toLowerCase());
                 });
-                return realStoriesFilter();
+                return realStoriesFilter;
             },
 
             foodWineFilter() {
                 let foodWineFilter = this.movies.filter((movie) => {
-                    return movie.genre.toLowerCase().includes("foodWineFilter".toLowerCase());
+                    return movie.id.toLowerCase().includes("foodWine".toLowerCase());
                 });
-                return foodWineFilter();
+                return foodWineFilter;
             },   
         },
 
         methods: {
             theSearch() {
-                let input = getElementById("searchBox").value:
+                let input = getElementById("searchBox").value;
                 if (input == "id") {
                     return "id";
                 } else {
@@ -426,4 +417,4 @@ let myVue = new Vue({
             }
         },
     },
-}),
+})
