@@ -75,11 +75,11 @@
         <div class="row">
             <h1 id="comingSoon">Coming Soon</h1>
             <div class="displayClassMainAxis">
-                <div v-for="(event, index) in moviesComingSoon" class="displayMovie"> <!-- filteredMoviesComingSoon-->
+                <div v-for="(event, index) in moviesComingSoonFilter" class="displayMovie"> <!-- filteredMoviesComingSoon-->
                     <a class="movie-link">
                         <div>
                             <img :src="event.image" alt="Movie Images" class="movieImage">
-                            <div><button class="add-Btn" @click="addWatchList(event)">Add</button></div> <!-- addWatchList = addToWatchList-->
+                            <div><button class="add-Btn" @click="addingToWatchList(event)">Add</button></div> <!-- addWatchList = addToWatchList-->
                         </div>
                     </a>
                 </div>
@@ -88,13 +88,13 @@
 
         <!-- Category 1-->
         <div class="row">
-            <h1 id="trending-now">Trending Now</h1>
+            <h1 id="trendingNow">Trending Now</h1>
             <div class="displayClassMainAxis">
-                <div v-for="(event, index) in trendingMovies" class="displayMovie"> 
+                <div v-for="(event, index) in trendingNowFilter" class="displayMovie"> 
                     <a class="movie-link">
                         <div>
                             <img :src="event.image" alt="Movie Images" class="movieImage">
-                            <div><button class="add-Btn" @click="addWatchList(event)">Add</button></div>
+                            <div><button class="add-Btn" @click="addingToWatchList(event)">Add</button></div>
                         </div>
                     </a>
                 </div>
@@ -105,11 +105,11 @@
         <div class="row">
             <h1 id="documentaries">Documentaries</h1>
             <div class="displayClassMainAxis">
-                <div v-for="(event, index) in documentaryMovies" class="displayMovie"> 
+                <div v-for="(event, index) in documentariesFilter" class="displayMovie"> 
                     <a class="movie-link">
                         <div>
                             <img :src="event.image" alt="Movie Images" class="movieImage">
-                            <div><button class="add-Btn" @click="addWatchList(event)">Add</button></div>
+                            <div><button class="add-Btn" @click="addingToWatchList(event)">Add</button></div>
                         </div>
                     </a>
                 </div>
@@ -120,11 +120,11 @@
         <div class="row">
             <h1 id="comedies">Comedies</h1>
             <div class="displayClassMainAxis">
-                <div v-for="(event, index) in comedyMovies" class="displayMovie"> 
+                <div v-for="(event, index) in comedyMoviesFilter" class="displayMovie"> 
                     <a class="movie-link">
                         <div>
                             <img :src="event.image" alt="Movie Images" class="movieImage">
-                            <div><button class="add-Btn" @click="addWatchList(event)">Add</button></div>
+                            <div><button class="add-Btn" @click="addingToWatchList(event)">Add</button></div>
                         </div>
                     </a>
                 </div>
@@ -135,11 +135,11 @@
         <div class="row">
             <h1 id="realStories">Real Stories</h1>
             <div class="displayClassMainAxis">
-                <div v-for="(event, index) in realStories" class="displayMovie"> 
+                <div v-for="(event, index) in realStoriesFilter" class="displayMovie"> 
                     <a class="movie-link">
                         <div>
                             <img :src="event.image" alt="Movie Images" class="movieImage">
-                            <div><button class="add-Btn" @click="addWatchList(event)">Add</button></div>
+                            <div><button class="add-Btn" @click="addingToWatchList(event)">Add</button></div>
                         </div>
                     </a>
                 </div>
@@ -149,11 +149,11 @@
         <div class="row">
             <h1 id="foodWine">Food & Wine</h1>
             <div class="displayClassMainAxis">
-                <div v-for="(event, index) in foodWineMovies" class="displayMovie"> 
+                <div v-for="(event, index) in foodWineFilter" class="displayMovie"> 
                     <a class="movie-link">
                         <div>
                             <img :src="event.image" alt="Movie Images" class="movieImage">
-                            <div><button class="add-Btn" @click="addWatchList(event)">Add</button></div>
+                            <div><button class="add-Btn" @click="addingToWatchList(event)">Add</button></div>
                         </div>
                     </a>
                 </div>

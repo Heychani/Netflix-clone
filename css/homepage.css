@@ -130,3 +130,27 @@ nav{
 #trailer{
     height: 50%;
 }
+
+.movieImage{
+    display: flex;
+}
+
+.displayMovie{
+    background-color: var(--black);
+    border: 4px;
+    width: 340px;
+    margin: 5px;
+}
+
+.movie-link{
+    width: 200px;
+    height: 150px;
+}
+
+.displayClassMainAxis {
+    display: flex;
+    overflow-x: scroll;
+    padding: 15px;
+}
+
+

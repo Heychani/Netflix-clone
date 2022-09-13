@@ -5,12 +5,11 @@ let myVue = new Vue({
         searchInput: {
             searchBox: "",
         },
-        searched: false,
-        InList: false,
-        fullList: false,
+        list: false,
+        completeList: false,
     
         movies: [
-            {   id: "trending-now",
+            {   id: "trendingNow",
                 title: "Chef's Table Pizza",
                 genre: "Social & Culture Docs, Docuseries, Food & Travel TV",
                 comingSoon: false,
@@ -21,7 +20,7 @@ let myVue = new Vue({
             },
     
             {
-                id: "trending-now",
+                id: "trendingNow",
                 title: "This is 40",
                 genre: "Romantic Comedies, Comedies, Romantic Movies",
                 comingSoon: false,
@@ -32,7 +31,7 @@ let myVue = new Vue({
             },
     
             {
-                id: "trending-now",
+                id: "trendingNow",
                 title: "Buy my house",
                 genre: "Home & Garden Reality TV, Competition Reality TV, Reality TV",
                 comingSoon: false,
@@ -43,7 +42,7 @@ let myVue = new Vue({
             },
     
             {
-                id: "trending-now",
+                id: "trendingNow",
                 title: "Friends",
                 genre: "Sitcoms, TV Comedies, US TV Shows",
                 comingSoon: false,
@@ -54,7 +53,7 @@ let myVue = new Vue({
             },
     
             {   
-                id: "trending-now",
+                id: "trendingNow",
                 title: "The Big Bang Theory",
                 genre: "Sitcoms, TV Comedies, US TV Shows",
                 comingSoon: false,
@@ -309,37 +308,122 @@ let myVue = new Vue({
             {
                 id: "comingSoon",
                 title: "John Wick Chapter 4",
-                genre: "",
+                genre: "Action, Thriller",
                 comingSoon: true,
                 availDate: 2023,
-                description: "",
-                image: "",
-                preview: "",
+                description: "John Wick (Keanu Reeves) takes on his most lethal adversaries yet in the upcoming fourth installment of the series. With the price on his head ever increasing, Wick takes his fight against the High Table global as he seeks out the most powerful players in the underworld, from New York to Paris to Osaka to Berlin. Lionsgate presents, a Thunder Road Films / 87eleven production.",
+                image: "https://m.media-amazon.com/images/M/MV5BOTI1MDA5OTEtNWExMi00NGYwLThmMjUtMDhmNDQ4YTg1NzZlXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_QL75_UY281_CR11,0,190,281_.jpg",
+                preview: "https://youtu.be/27EF723ZDmI",
             },
 
             {
                 id: "comingSoon",
-                title: "",
-                genre: "",
+                title: "Ticket to Paradise",
+                genre: "Romance, Comedy",
                 comingSoon: true,
                 availDate: 2023,
-                description: "",
-                image: "",
-                preview: "",
+                description: "A divorced couple that teams up and travels to Bali to stop their daughter from making the same mistake they think they made 25 years ago.",
+                image: "https://m.media-amazon.com/images/M/MV5BMWE0MmEwMWUtZjRjOC00YzE3LWI2MjctNjc3NWQ0YTVmNDQ4XkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_.jpg",
+                preview: "https://youtu.be/hkP4tVTdsz8",
             },
 
             {
                 id: "comingSoon",
-                title: "",
-                genre: "",
+                title: "Puss in Boots: The Last Wish",
+                genre: "Comedy, Animation",
                 comingSoon: true,
                 availDate: 2023,
-                description: "",
-                image: "",
-                preview: "",
+                description: "Puss in Boots discovers that his passion for adventure has taken its toll: he has burned through eight of his nine lives. Puss sets out on an epic journey to find the mythical Last Wish and restore his nine lives.",
+                image: "https://www.dreamworks.com/storage/cms-uploads/puss-in-boots-the-last-wish-poster-thumbnail2.jpg",
+                preview: "https://youtu.be/xgZLXyqbYOc",
             },
-        ]
-    }
+        ],
+    },
 
+        computed: {
+            moviesFilter() {
+                let noviesFilter = this.movies.filter((movie) => {
+                    return movie.Title.toLowerCase().includes(
+                        this.searchInput.searchBox.toLowerCase()
+                    );
+                });
+                return moviesFilter();
+            },
 
+            moviesComingSoonFilter() {
+                let moviesComingSoonFilter = this.movies.filter((movie) => {
+                return movie.genre.toLowerCase().includes("comingSoon".toLowerCase());
+            });
+            return moviesComingSoonFilter();
+            },
 
+            trendingNowFilter() {
+                let trendingNowFilter = this.movies.filter((movie) => {
+                    return movie.genre.toLowerCase().includes("trendingNow".toLowerCase());
+                });
+                return trendingNowFilter();
+            },
+
+            documentariesFilter() {
+                let documentariesFilter = this.movies.filter((movie) => {
+                    return movie.genre.toLowerCase().includes("documentaries".toLowerCase());
+                });
+                return documentariesFilter();
+            },
+
+            comedyMoviesFilter() {
+                let comedyMoviesFilter = this.movies.filter((movie) => {
+                    return movie.genre.toLowerCase().includes("comedies".toLowerCase());
+                });
+                return comedyMoviesFilter();
+            },
+
+            realStoriesFilter() {
+                let realStoriesFilter = this.movies.filter((movie) => {
+                    return movie.genre.toLowerCase().includes("realStories".toLowerCase());
+                });
+                return realStoriesFilter();
+            },
+
+            foodWineFilter() {
+                let foodWineFilter = this.movies.filter((movie) => {
+                    return movie.genre.toLowerCase().includes("foodWineFilter".toLowerCase());
+                });
+                return foodWineFilter();
+            },   
+        },
+
+        methods: {
+            theSearch() {
+                let input = getElementById("searchBox").value:
+                if (input == "id") {
+                    return "id";
+                } else {
+                    alert("Please search another title, category or genre");
+                }
+            },
+
+            addingToWatchList(event) {
+                let watchlist = JSON.parse(localStorage.getItem("movies"));
+                for (let i = 0; i < watchlist.length; i++) {
+                    if (watchlist[i].title == event.title) {
+                        this.list = true;
+                    } else {
+                        this.list = false;
+                    }
+                }
+
+                if (this.list == true) {
+                } else {
+                if (watchlist.length < 20) {
+                    watchlist.push(event);
+
+                    localStorage.setItem("movies", JSON.stringify(watchlist));
+                } else if (watchlist.length >= 20) {
+                    this.completeList = true;
+                    alert("Your list is full, eiter have some fun and watch it all or you'll have to delete some, sorry!");
+                }
+            }
+        },
+    },
+}),
