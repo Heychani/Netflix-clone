@@ -1,19 +1,19 @@
-let homepageVue = new Vue({
-    el: "#netflixApplication",
+let homepageVue = new Vue({ //el property of the Vue instance.
+    el: "#netflixApplication", //the value I set was #netflixApplication which is a reference in the HTML file just above the body tag.
 
-    data: {
+    data: {  //these are booleans that are set to false, these indicate whether or not there's a list of the movies in the array below in progress or not, they are all set to false until we start sorting all the the movies/TV shows by id
         list: false,
         completeList: false,
     
-        movies: [
-            {   id: "trendingNow",
-                title: "Chef's Table Pizza",
-                genre: "Social & Culture Docs, Docuseries, Food & Travel TV",
-                comingSoon: false,
-                availDate: 2022,
-                description: "Dig into the best Pizzas from around the world, prepared by renowned chefs who bake passion, creativity and hard work into every slice",
+        movies: [ //these are all the information about the movies and TV Shows within an array. It contains the id, title, genre, comingsoon, date available, description, image and preview.
+            {   id: "trendingNow", //category of the movie/TV show
+                title: "Chef's Table Pizza", //title of the movie/TV Show
+                genre: "Social & Culture Docs, Docuseries, Food & Travel TV", //Genre's of the movie/TV Show
+                comingSoon: false, //Boolean if the movie is out=false, coming soon=true
+                availDate: 2022, //when the movie came to availibility ot when it will be available
+                description: "Dig into the best Pizzas from around the world, prepared by renowned chefs who bake passion, creativity and hard work into every slice", //short description of the movie
                 image: "https://occ-0-4305-34.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABQJWZeUipOPfMjKHJpsoQ2EglYXiH9YFAbhZwXUNvTEZ6R0TdYWEIdXQv_lqweQxBKMROZrOaPN42T1VGYIBwrtXU38HKgtc_AoEF9lk1GIr48B3wljzefliL5D6L20sr9Rv.jpg?r=2b0",
-                preview: "https://youtu.be/wyXnoeJoKLw", 
+                preview: "https://youtu.be/wyXnoeJoKLw",  //image and trailer URL's
             },
     
             {
@@ -336,13 +336,13 @@ let homepageVue = new Vue({
             },
         ],
     },
-
-        computed: {
-            moviesComingSoonFilter() {
-                let moviesComingSoonFilter = this.movies.filter((movie) => {
-                    return movie.id.toLowerCase().includes("comingSoon".toLowerCase());
+        //I will only explain one function as all the others in the computed section are done in the same manner and follows the same logic
+        computed: { //computed is there to help create, modify, manipulate or display data within your components in a readable, efficient manner. This also helps with updating and creating new elements as time goes on.
+            moviesComingSoonFilter() { //moviesComingSoonFilter is a function that will return an object with two properties: The movies and filter to coming soon.
+                let moviesComingSoonFilter = this.movies.filter((movie) => { //here is where we filter the movies collection to only include the desired id which we ask for line comingSoon in the 'movies'
+                    return movie.id.toLowerCase().includes("comingSoon".toLowerCase()); 
             });
-            return moviesComingSoonFilter;
+            return moviesComingSoonFilter; //the filtered list of the comingSoon movies will then be retured and showed on display 
             },
 
             trendingNowFilter() {
@@ -381,24 +381,24 @@ let homepageVue = new Vue({
             },   
         },
 
-        methods: {
+        methods: { //methods are used here to to perform actions on the V-on directives in the HTML files that handle the events, these functions can also be called further on in performing actions
 
-            addingToWatchList(event) {
-                let watchlist = JSON.parse(localStorage.getItem("movies"));
-                for (let i = 0; i < watchlist.length; i++) {
-                    if (watchlist[i].title == event.title) {
+            addingToWatchList(event) { 
+                let watchlist = JSON.parse(localStorage.getItem("movies")); //created a variable called watchlist, this object will be parsed later from localstorage
+                for (let i = 0; i < watchlist.length; i++) { //an array of movies is created and this loops through each movie in the list to see if the id match the event
+                    if (watchlist[i].title == event.title) { //if it does or is true, then set it to the list, adds movie to the watchlist
                         this.list = true;
                     } else {
                         this.list = false;
                     }
                 }
-
+                //all these events will be added to the watchlist and which will then be saved back into localStorage with a JSON stringified version of itself for future use when needed later down the line
                 if (this.list == true) {
                 } else {
                 if (watchlist.length < 20) {
                     watchlist.push(event);
 
-                    localStorage.setItem("movies", JSON.stringify(watchlist));
+                    localStorage.setItem("movies", JSON.stringify(watchlist));  //these loops are here to make sure that the watchlist doesn't grow to full and the user will be asked to delete some before adding more if the amount goes over 20
                 } else if (watchlist.length >= 20) {
                     this.completeList = true;
                     alert("Your list is full, eiter have some fun and watch it all or you'll have to delete some, sorry!");
