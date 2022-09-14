@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>Netflix Homepage</title>
     <!-- CSS link-->
     <link rel="stylesheet" href="css/homepage.css">
     <!-- JavaScript tag-->
@@ -24,33 +24,28 @@
                 </a>
                 <ul class="primary-navigation">
                     <li class="category">
-                        <a class="browse active" href="#Home">Home</a>
+                        <a class="browse-active" href="homepage.html">Home</a>
                     </li>
                     <li class="category">
-                        <a class="browse" href="#TV shows">TV Shows</a>
+                        <a class="browse" href="#comingSoon">Coming Soon</a>
                     </li>
                     <li class="category">
-                        <a class="browse" href="#Movies">Movies</a>
+                        <a class="browse" href="#trendingNow">Trending Now</a>
                     </li>
                     <li class="category">
-                        <a class="browse" href="#New & Popular">New & Popular</a>
+                        <a class="browse" href="#comedies">Comedy</a>
                     </li>
                     <li class="category">
                         <button><a class="watchlist" href="watchlist.html">My Watchlist</a></button>
                     </li>
                     <li class="category">
-                        <a class="browse" href="#Coming Soon">Coming Soon</a>
+                        <a class="browse" href="#documentaries">Documentaries</a>
                     </li>
                 </ul>
             </div>
             <!-- Navbar right -->
             <div class="nav-right">
-                <div class="search">
-                    <form>
-                        <input id="searchBox" v-model="searchInput.searchBox" type="text" placeholder="Titles, people, genres">
-                        <input type="image" value="search" id="search-btn" src="images/search-icon.png" @click="theSearch">
-                    </form>
-                </div>
+
                 <ul class="list-nav-right">
                     <li class="category">
                         <a class="browse" href="#Kids">Kids</a>
@@ -61,10 +56,10 @@
             </div>
         </nav>
 
-
         <!-- Movie trailer -->
         <div class="movie-trailer">
             <video src="video/bullet-2-trailer.mov" 
+            autoplay=""
             title="Bullet Train | Brad Pitt, Bad Bunny, Aaron Taylor-Johnson, Sandra Bullock and Joey King | Official Trailer | Netflix"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -72,29 +67,33 @@
         </div>  
         
         <!-- Category slides -->
-        <div class="row">
+        <div class="card-slices">
             <h1 id="comingSoon">Coming Soon</h1>
             <div class="displayClassMainAxis">
-                <div v-for="(event, index) in moviesComingSoonFilter" class="displayMovie"> <!-- filteredMoviesComingSoon-->
+                <div v-for="(event, index) in moviesComingSoonFilter" class="displayMovie"> 
                     <a class="movie-link">
-                        <div>
+                        <div class="card">
                             <img :src="event.image" alt="Movie Images" class="movieImage">
-                            <div><button class="add-Btn" @click="addingToWatchList(event)">Add</button></div> <!-- addWatchList = addToWatchList-->
+                            <button class="add-Btn" @click="addingToWatchList(event)">Add to Watchlist</button>
                         </div>
+                        <!-- <div class="show-hover" hidden>
+                            <p class="title">{{event.title}}</p>
+                            <p class="description">{{event.description}}</p>
+                        </div> -->
                     </a>
                 </div>
             </div>
         </div>
 
         <!-- Category 1-->
-        <div class="row">
+        <div class="card-slices">
             <h1 id="trendingNow">Trending Now</h1>
             <div class="displayClassMainAxis">
                 <div v-for="(event, index) in trendingNowFilter" class="displayMovie"> 
                     <a class="movie-link">
                         <div>
                             <img :src="event.image" alt="Movie Images" class="movieImage">
-                            <div><button class="add-Btn" @click="addingToWatchList(event)">Add</button></div>
+                            <button class="add-Btn" @click="addingToWatchList(event)">Add to Watchlist</button>
                         </div>
                     </a>
                 </div>
@@ -102,14 +101,14 @@
         </div>
 
         <!-- Category 2 -->
-        <div class="row">
+        <div class="card-slices">
             <h1 id="documentaries">Documentaries</h1>
             <div class="displayClassMainAxis">
                 <div v-for="(event, index) in documentariesFilter" class="displayMovie"> 
                     <a class="movie-link">
                         <div>
                             <img :src="event.image" alt="Movie Images" class="movieImage">
-                            <div><button class="add-Btn" @click="addingToWatchList(event)">Add</button></div>
+                            <button class="add-Btn" @click="addingToWatchList(event)">Add to Watchlist</button>
                         </div>
                     </a>
                 </div>
@@ -117,14 +116,14 @@
         </div>
 
         <!-- Category 3 -->
-        <div class="row">
+        <div class="card-slices">
             <h1 id="comedies">Comedies</h1>
             <div class="displayClassMainAxis">
                 <div v-for="(event, index) in comedyMoviesFilter" class="displayMovie"> 
                     <a class="movie-link">
                         <div>
                             <img :src="event.image" alt="Movie Images" class="movieImage">
-                            <div><button class="add-Btn" @click="addingToWatchList(event)">Add</button></div>
+                            <button class="add-Btn" @click="addingToWatchList(event)">Add to Watchlist</button>
                         </div>
                     </a>
                 </div>
@@ -132,28 +131,28 @@
         </div>    
 
         <!-- Category 4 -->
-        <div class="row">
+        <div class="card-slices">
             <h1 id="realStories">Real Stories</h1>
             <div class="displayClassMainAxis">
                 <div v-for="(event, index) in realStoriesFilter" class="displayMovie"> 
                     <a class="movie-link">
                         <div>
                             <img :src="event.image" alt="Movie Images" class="movieImage">
-                            <div><button class="add-Btn" @click="addingToWatchList(event)">Add</button></div>
+                            <button class="add-Btn" @click="addingToWatchList(event)">Add to Watchlist</button>
                         </div>
                     </a>
                 </div>
             </div>
         </div>   
 
-        <div class="row">
+        <div class="card-slices">
             <h1 id="foodWine">Food & Wine</h1>
             <div class="displayClassMainAxis">
                 <div v-for="(event, index) in foodWineFilter" class="displayMovie"> 
                     <a class="movie-link">
                         <div>
                             <img :src="event.image" alt="Movie Images" class="movieImage">
-                            <div><button class="add-Btn" @click="addingToWatchList(event)">Add</button></div>
+                            <button class="add-Btn" @click="addingToWatchList(event)">Add to Watchlist</button>
                         </div>
                     </a>
                 </div>

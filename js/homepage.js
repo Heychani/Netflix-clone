@@ -1,10 +1,7 @@
-let myVue = new Vue({
+let homepageVue = new Vue({
     el: "#netflixApplication",
 
     data: {
-        searchInput: {
-            searchBox: "",
-        },
         list: false,
         completeList: false,
     
@@ -26,7 +23,7 @@ let myVue = new Vue({
                 comingSoon: false,
                 availDate: 2015,
                 description: "After a big birthday, married couple Pete and Debbie wrestle with realities of parenthood, romance and getting older",
-                image: "https://occ-0-4305-34.1.nflxso.net/dnm/api/v6/tx1O544a9T7n8Z_G12qaboulQQE/AAAABfUJ80d7niqc09vle-s1YHPX-YEvSF0Z6cx6CzDIoSpR_7TS6ixpufkx8wL3saxfU7fjrfwm1yYrr1vbkdA-KdygfrZS8z3N21W0MWBcYP8.webp?r=7a5",
+                image: "https://occ-0-4305-34.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABSPo-lMnp7iVFHdhwWsRuyp2eVam0EFAB0wv16MaMH7cdIAsn45bf31Wb4krHXhr0CYNyR2UldocZEVnvFcZV8hdnslNPd6yMX0.webp?r=fbc",
                 preview: "https://youtu.be/46sZURieja0",
             },
     
@@ -329,13 +326,13 @@ let myVue = new Vue({
 
             {
                 id: "comingSoon",
-                title: "Puss in Boots: The Last Wish",
-                genre: "Comedy, Animation",
+                title: "Get Smart with Money",
+                genre: "Documentary Films, Lifestyle",
                 comingSoon: true,
                 availDate: 2023,
-                description: "Puss in Boots discovers that his passion for adventure has taken its toll: he has burned through eight of his nine lives. Puss sets out on an epic journey to find the mythical Last Wish and restore his nine lives.",
-                image: "https://www.dreamworks.com/storage/cms-uploads/puss-in-boots-the-last-wish-poster-thumbnail2.jpg",
-                preview: "https://youtu.be/xgZLXyqbYOc",
+                description: "Financial advisers share their simple tips on spending less and saving more with people looking to take control of their funds and achieve their goals.",
+                image: "https://occ-0-4305-34.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABZk39crVaAEE2z8-fiA-bkaPUNVFll8GpjEWyKNd--74Lx01oXZPNp35XmwLzLv7nmo1NTvYoiHrUNv4kn0UfeZuN_dVr-nHRTe_84cTlapcVJx82OCGJWPgPR30BBxXBc2R.jpg?r=96c",
+                preview: "https://youtu.be/pJeQAhaRW80",
             },
         ],
     },
@@ -385,14 +382,6 @@ let myVue = new Vue({
         },
 
         methods: {
-            theSearch() {
-                let input = getElementById("searchBox").value;
-                if (input == "id") {
-                    return "id";
-                } else {
-                    alert("Please search another title, category or genre");
-                }
-            },
 
             addingToWatchList(event) {
                 let watchlist = JSON.parse(localStorage.getItem("movies"));
